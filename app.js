@@ -22,7 +22,7 @@ intents.matches('Saludar', function (session, results) {
 });
 
 intents.matches('Produccion', [function (session, args, next) {
-    const division = ['FASA Norte', 'FASA Sur', 'FASA Norte'];
+    const division = ['FASA Norte', 'FASA Sur', 'FASA Centro'];
     builder.Prompts.choice(session, 'Ahora mismo tenemos esa division disponible, ¿Cuál deseas revisar?', division);
     //const divisionEntity = builder.EntityRecognizer.findEntity(args.intent.entities, 'Division');
     //if (divisionEntity) {
