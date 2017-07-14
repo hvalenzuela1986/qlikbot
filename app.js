@@ -21,6 +21,10 @@ intents.matches('Saludar', function (session, results) {
     session.send('Hola ¿En que te puedo ayudar?');
 });
 
+intents.matches('Produccion', [function (session, args, next) {
+    session.send('Por el momento no puedo acceder a la Produccion :(');
+}]);
+
 intents.onDefault(builder.DialogAction.send('No he entendido lo que quieres decir'));
 
 bot.dialog('/', intents);
