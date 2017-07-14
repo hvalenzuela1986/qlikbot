@@ -5,8 +5,10 @@ const server = restify.createServer();
 
 // Setup bot
 const connector = new builder.ChatConnector({
-    appId: process.env.MICROSOFT_APP_ID,
-    appPassword: process.env.MICROSOFT_APP_PASSWORD
+    //appId: process.env.MICROSOFT_APP_ID,
+    //appPassword: process.env.MICROSOFT_APP_PASSWORD
+    appId: "ef4f80eb-823e-41a8-8974-1d47eaad7e4d",
+    appPassword: "ybggCUEWnoDVCUF7j0UXObt"
 });
 const bot = new builder.UniversalBot(connector);
 
