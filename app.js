@@ -22,14 +22,15 @@ intents.matches('Saludar', function (session, results) {
 });
 
 intents.matches('Produccion', [function (session, args, next) {
-    //const division = ['FASA Norte', 'FASA Sur', 'FASA Norte'];
+    const division = ['FASA Norte', 'FASA Sur', 'FASA Norte'];
     const divisionEntity = builder.EntityRecognizer.findEntity(args.intent.entities, 'Division');
     if (divisionEntity) {
-        ///const match = builder.EntityRecognizer.findBestMatch(division, divisionEntity.entity);
-        next({ response: divisionEntity.entity });
+        const match = builder.EntityRecognizer.findBestMatch(division, divisionEntity.entity);
+    }
+    if (!match) {
+        builder.Prompts.choice(session, 'Ahora mismo tenemos esa division disponible, ¿Cuál deseas revisar?', division);
     }
     else {
-        const match = 'No encontramos la información';
         next({ response: match });
     }
 }, function (session, results) {
