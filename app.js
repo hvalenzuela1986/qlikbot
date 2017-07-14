@@ -22,7 +22,7 @@ intents.matches('Saludar', function (session, results) {
 });
 
 intents.matches('Produccion', [function (session, args, next) {
-    session.send('Por el momento no puedo acceder a la Produccion :(');
+    session.send('Por el momento no puedo acceder a la Produccion :( %s',args);
 }]);
 
 intents.onDefault(builder.DialogAction.send('No he entendido lo que quieres decir'));
