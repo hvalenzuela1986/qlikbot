@@ -23,7 +23,7 @@ intents.matches('Saludar', function (session, results) {
 
 intents.matches('Produccion', [function (session, args, next) {
     var divisionEntity = builder.EntityRecognizer.findEntity(args.intent.entities, 'Division');
-    session.send('Estamos analizando la Produccion de \'%s\'',divisionEntity.entity);
+    session.send('Estamos analizando la Produccion de %s',divisionEntity.entity);
 }]);
 
 intents.onDefault(builder.DialogAction.send('No he entendido lo que quieres decir'));
