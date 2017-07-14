@@ -23,16 +23,17 @@ intents.matches('Saludar', function (session, results) {
 
 intents.matches('Produccion', [function (session, args, next) {
     const division = ['FASA Norte', 'FASA Sur', 'FASA Norte'];
-    const divisionEntity = builder.EntityRecognizer.findEntity(args.intent.entities, 'Division');
-    if (divisionEntity) {
-        const match = builder.EntityRecognizer.findBestMatch(division, divisionEntity.entity);
-    }
-    if (!match) {
-        builder.Prompts.choice(session, 'Ahora mismo tenemos esa division disponible, ¿Cuál deseas revisar?', division);
-    }
-    else {
-        next({ response: match });
-    }
+    builder.Prompts.choice(session, 'Ahora mismo tenemos esa division disponible, ¿Cuál deseas revisar?', division);
+    //const divisionEntity = builder.EntityRecognizer.findEntity(args.intent.entities, 'Division');
+    //if (divisionEntity) {
+      //  const match = builder.EntityRecognizer.findBestMatch(division, divisionEntity.entity);
+    //}
+    //if (!match) {
+      //  builder.Prompts.choice(session, 'Ahora mismo tenemos esa division disponible, ¿Cuál deseas revisar?', division);
+    //}
+    //else {
+   //     next({ response: match });
+    //}
 }, function (session, results) {
     if (results.response) {
         session.send("De acuerdo, la produccion de %s es 1", results.response.entity);
