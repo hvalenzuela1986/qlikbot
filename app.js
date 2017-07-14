@@ -29,20 +29,3 @@ server.post('/api/messages', connector.listen());
 server.listen(process.env.port || process.env.PORT || 3978, function () {
     console.log('%s escuchando %s', server.name, server.url);
 });
-
-var QRS = require('qrs');
-var config = {
-    "host": 'qs.arauco.cl',
-    "useSSL": true,
-	"port": 4242,
-    "xrfkey": 'ABCDEFG123456789',
-    "authentication": "header",
-    "headerKey": 'X-Qlik-User',
-    "headerValue": 'UserDirectory:Internal;UserId:sa_repository'
-};
-var qrs = new QRS( config );
-
-// Now run your command like
-qrs.get('qrs/about', function( data ) {
-	console.log(data);
-});
