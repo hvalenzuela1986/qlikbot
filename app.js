@@ -25,7 +25,7 @@ var recognizer = new builder.LuisRecognizer('https://westus.api.cognitive.micros
 bot.recognizer(recognizer);
 
 bot.dialog('Saludar', function (session) {
-    session.endDialog('Hola ¿En que te puedo ayudar?');
+    session.endDialog('Hola. ¿En que te puedo ayudar?');
 }).triggerAction({
     matches: 'Saludar'
 });
